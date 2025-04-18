@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Maintenance App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+        .box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .box li {
+            padding: 5px 0;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+        .form-container {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 400px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sensor Maintenance App</h1>
+    <div class="box">
+        <ul id="sensorList">
+            <li onclick="showCalibrationTable('Sensor 1')">Sensor 1</li>
+            <li onclick="showCalibrationTable('Sensor 2')">Sensor 2</li>
+            <li onclick="showCalibrationTable('Sensor 3')">Sensor 3</li>
+            <li onclick="showAddSensorForm()">Add Sensor</li> <!-- New item -->
+        </ul>
+    </div>
+    <div class="form-container" id="addSensorForm" style="display: none;"> <!-- Add Sensor Form -->
+        <h2>Add Sensor</h2>
+        <label for="sensorName">Sensor Name:</label>
+        <input type="text" id="sensorName" name="sensorName" placeholder="Enter sensor name"><br><br>
+        <button onclick="addSensor()">Add</button>
+    </div>
+    <div class="form-container" id="editSensorForm" style="display: none;"> <!-- Edit Sensor Form -->
+        <h2>Edit Sensor</h2>
+        <label for="editSensorName">Sensor Name:</label>
+        <input type="text" id="editSensorName" name="editSensorName" placeholder="Enter new sensor name"><br><br>
+        <button onclick="saveEditedSensor()">Save</button>
+    </div>
+
+    <script>
+        let currentSensor = '';
+        let calibrationCount = 3; // Initial number of calibrations
+        let sensorToEdit = null; // Reference to the sensor being edited
+
+        function showCalibrationTable(sensorName) {
+            currentSensor = sensorName;
+            const table = document.getElementById('calibrationTable');
+            const title = document.getElementById('calibrationTitle');
+            const form = document.getElementById('addCalibrationForm');
+            title.textContent = `Calibration of ${sensorName}`;
+            table.style.display = 'block';
+            form.style.display = 'none'; // Hide form if visible
+        }
+
+        function showAddSensorForm() {
+            const form = document.getElementById('addSensorForm');
+            const calibrationTable = document.getElementById('calibrationTable');
+            const addCalibrationForm = document.getElementById('addCalibrationForm');
+            form.style.display = 'block';
+            calibrationTable.style.display = 'none'; // Hide calibration table
+            addCalibrationForm.style.display = 'none'; // Hide add calibration form
+        }
+
+        function addSensor() {
+            const sensorName = document.getElementById('sensorName').value.trim();
+            if (sensorName) {
+                // Send the sensor name to the backend
+                fetch('http://localhost:3000/add-sensor', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ sensorName }),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to add sensor to the database');
+                    }
+                })
+                .then(data => {
+                    // Add the sensor to the HTML list
+                    const sensorList = document.getElementById('sensorList');
+                    const newSensor = document.createElement('li');
+                    newSensor.innerHTML = `
+                        <span onclick="showCalibrationTable('${data.sensor_name}')">${data.sensor_name}</span>
+                        <button onclick="editSensor(this, '${data.sensor_name}')">Edit</button>
+                        <button onclick="removeSensor(this)">Remove</button>
+                    `;
+                    sensorList.insertBefore(newSensor, sensorList.lastElementChild); // Add before "Add Sensor"
+                    alert(`Sensor "${data.sensor_name}" added successfully!`);
+                    document.getElementById('addSensorForm').style.display = 'none'; // Hide form after adding
+                    document.getElementById('sensorName').value = ''; // Clear input
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Error adding sensor to the database');
+                });
+            } else {
+                alert('Please enter a sensor name.');
+            }
+        }
+
+        function removeSensor(button) {
+            if (confirm('Are you sure you want to remove this sensor?')) {
+                const sensorItem = button.parentElement;
+                sensorItem.remove();
+                alert('Sensor removed successfully!');
+            }
+        }
+
+        function editSensor(button, sensorName) {
+            sensorToEdit = button.parentElement; // Reference to the sensor item
+            document.getElementById('editSensorName').value = sensorName; // Pre-fill the input with the current name
+            document.getElementById('editSensorForm').style.display = 'block'; // Show the edit form
+            document.getElementById('addSensorForm').style.display = 'none'; // Hide the add form
+            document.getElementById('calibrationTable').style.display = 'none'; // Hide calibration table
+        }
+
+        function saveEditedSensor() {
+            const newSensorName = document.getElementById('editSensorName').value.trim();
+            if (newSensorName) {
+                const sensorSpan = sensorToEdit.querySelector('span');
+                sensorSpan.textContent = newSensorName; // Update the sensor name
+                sensorSpan.setAttribute('onclick', `showCalibrationTable('${newSensorName}')`); // Update the onclick event
+                alert(`Sensor updated to "${newSensorName}" successfully!`);
+                document.getElementById('editSensorForm').style.display = 'none'; // Hide the edit form
+                sensorToEdit = null; // Clear the reference
+            } else {
+                alert('Please enter a new sensor name.');
+            }
+        }
+    </script>
+</body>
+</html>
