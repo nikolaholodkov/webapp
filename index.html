@@ -90,6 +90,19 @@
                         const sensorItem = document.createElement('li');
                         sensorItem.textContent = sensor.sensor_name; // Display sensor name
 
+                        // Create an "Edit" button
+                        const editButton = document.createElement('button');
+                        editButton.textContent = 'Edit';
+                        editButton.style.marginLeft = '10px';
+                        editButton.addEventListener('click', () => {
+                            const newSensorName = prompt('Enter the new sensor name:', sensor.sensor_name);
+                            if (newSensorName && newSensorName.trim() !== '') {
+                                editSensor(sensor.id, newSensorName.trim());
+                            } else {
+                                alert('Sensor name not edited.');
+                            }
+                        });
+
                         // Create a "Remove" button
                         const removeButton = document.createElement('button');
                         removeButton.textContent = 'Remove';
@@ -100,6 +113,8 @@
                             }
                         });
 
+                        // Append buttons in the desired order
+                        sensorItem.appendChild(editButton);
                         sensorItem.appendChild(removeButton);
                         sensorList.appendChild(sensorItem);
                     });
@@ -145,6 +160,27 @@
             .catch(error => {
                 console.error(error);
                 alert('Error removing sensor from the database');
+            });
+        }
+
+        function editSensor(sensorId, newSensorName) {
+            fetch(`http://localhost:3000/sensors/${sensorId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ sensor_name: newSensorName }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    fetchSensors(); // Refresh the sensor list
+                } else {
+                    throw new Error('Failed to edit sensor in the database');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Error editing sensor in the database');
             });
         }
     </script>

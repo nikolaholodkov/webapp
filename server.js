@@ -62,6 +62,32 @@ app.delete('/sensors/:id', async (req, res) => {
     }
 });
 
+// API endpoint to update a sensor's name by ID
+app.put('/sensors/:id', async (req, res) => {
+    const { id } = req.params;
+    const { sensor_name } = req.body;
+
+    if (!sensor_name) {
+        return res.status(400).send('Sensor name is required');
+    }
+
+    try {
+        const result = await pool.query(
+            'UPDATE Sensors SET sensor_name = $1 WHERE id = $2',
+            [sensor_name, id]
+        );
+
+        if (result.rowCount === 0) {
+            return res.status(404).send('Sensor not found');
+        }
+
+        res.status(200).send('Sensor updated successfully');
+    } catch (err) {
+        console.error('Error updating sensor in the database:', err);
+        res.status(500).send('Error updating sensor in the database');
+    }
+});
+
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
