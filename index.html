@@ -203,13 +203,48 @@
             testReportBox.style.width = '1800px'; // Set the width to 4 times the original (300px * 4)
             testReportBox.innerHTML = `
                 <h2>Test Report: ${sensorName}</h2>
-                <div class="box">Test Equipment</div>
+                <div class="box" style="width: 1600px; margin-bottom: 20px;"> <!-- Wider Test Equipment box -->
+                    <h3>Test Equipment</h3>
+                    <table id="testEquipmentTable" border="1" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th>Instrument</th>
+                                <th>Model</th>
+                                <th>Serial Number</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td contenteditable="true"></td>
+                                <td contenteditable="true"></td>
+                                <td contenteditable="true"></td>
+                                <td contenteditable="true"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id="addRowButton" style="margin-top: 10px;">Add Row</button>
+                </div>
                 <div class="box">Sensor Calibration Sheet 1 (a)</div>
                 <div class="box">Sensor Calibration Sheet 1 (b)</div>
             `;
 
             // Append the Test Report box to the body
             document.body.appendChild(testReportBox);
+
+            // Add functionality to the "Add Row" button
+            const addRowButton = document.getElementById('addRowButton');
+            addRowButton.addEventListener('click', () => {
+                const tableBody = document.querySelector('#testEquipmentTable tbody');
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                    <td contenteditable="true"></td>
+                `;
+                tableBody.appendChild(newRow);
+            });
         }
     </script>
 </body>
