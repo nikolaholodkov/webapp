@@ -26,19 +26,51 @@
             color: blue;
             text-decoration: underline;
         }
+        .form-container {
+            margin-top: 20px;
+        }
+        .form-container input {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
-    <h1>Sensor Maintenance App</h1>
+    <h1>Sensors Calibration</h1>
     <div class="box">
         <ul id="sensorList">
             <!-- Sensor list will be populated dynamically -->
         </ul>
+        <button id="addSensorButton">Add Sensor</button>
+        <div id="addSensorForm" class="form-container" style="display: none;">
+            <input type="text" id="sensorNameInput" placeholder="Enter sensor name">
+            <button id="submitSensorButton">Submit</button>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             fetchSensors();
+
+            const addSensorButton = document.getElementById('addSensorButton');
+            const addSensorForm = document.getElementById('addSensorForm');
+            const submitSensorButton = document.getElementById('submitSensorButton');
+
+            addSensorButton.addEventListener('click', () => {
+                addSensorForm.style.display = 'block';
+            });
+
+            submitSensorButton.addEventListener('click', () => {
+                const sensorNameInput = document.getElementById('sensorNameInput');
+                const sensorName = sensorNameInput.value.trim();
+
+                if (sensorName) {
+                    addSensor(sensorName);
+                    sensorNameInput.value = ''; // Clear the input field
+                    addSensorForm.style.display = 'none'; // Hide the form
+                } else {
+                    alert('Please enter a sensor name.');
+                }
+            });
         });
 
         function fetchSensors() {
@@ -64,6 +96,27 @@
                     console.error(error);
                     alert('Error fetching sensors from the database');
                 });
+        }
+
+        function addSensor(sensorName) {
+            fetch('http://localhost:3000/sensors', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ sensor_name: sensorName }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    fetchSensors(); // Refresh the sensor list
+                } else {
+                    throw new Error('Failed to add sensor to the database');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Error adding sensor to the database');
+            });
         }
     </script>
 </body>

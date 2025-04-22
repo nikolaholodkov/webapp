@@ -27,6 +27,23 @@ app.get('/sensors', async (req, res) => {
     }
 });
 
+// API endpoint to add a new sensor
+app.post('/sensors', async (req, res) => {
+    const { sensor_name } = req.body;
+
+    if (!sensor_name) {
+        return res.status(400).send('Sensor name is required');
+    }
+
+    try {
+        await pool.query('INSERT INTO Sensors (sensor_name) VALUES ($1)', [sensor_name]);
+        res.status(201).send('Sensor added successfully');
+    } catch (err) {
+        console.error('Error adding sensor to the database:', err);
+        res.status(500).send('Error adding sensor to the database');
+    }
+});
+
 // Start the server
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
