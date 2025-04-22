@@ -19,7 +19,7 @@ const pool = new Pool({
 // API endpoint to fetch all sensors
 app.get('/sensors', async (req, res) => {
     try {
-        const result = await pool.query('SELECT sensor_name FROM Sensors');
+        const result = await pool.query('SELECT id, sensor_name FROM Sensors'); // Include 'id'
         res.status(200).json(result.rows);
     } catch (err) {
         console.error('Error fetching sensors from the database:', err);
@@ -41,6 +41,24 @@ app.post('/sensors', async (req, res) => {
     } catch (err) {
         console.error('Error adding sensor to the database:', err);
         res.status(500).send('Error adding sensor to the database');
+    }
+});
+
+// API endpoint to delete a sensor by ID
+app.delete('/sensors/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const result = await pool.query('DELETE FROM Sensors WHERE id = $1', [id]);
+
+        if (result.rowCount === 0) {
+            return res.status(404).send('Sensor not found');
+        }
+
+        res.status(200).send('Sensor removed successfully');
+    } catch (err) {
+        console.error('Error removing sensor from the database:', err);
+        res.status(500).send('Error removing sensor from the database');
     }
 });
 
