@@ -90,6 +90,11 @@
                         const sensorItem = document.createElement('li');
                         sensorItem.textContent = sensor.sensor_name; // Display sensor name
 
+                        // Add click event to display the Test Report box
+                        sensorItem.addEventListener('click', () => {
+                            displayTestReport(sensor.sensor_name);
+                        });
+
                         // Create an "Edit" button
                         const editButton = document.createElement('button');
                         editButton.textContent = 'Edit';
@@ -182,6 +187,29 @@
                 console.error(error);
                 alert('Error editing sensor in the database');
             });
+        }
+
+        function displayTestReport(sensorName) {
+            // Check if a Test Report box already exists and remove it
+            const existingReportBox = document.getElementById('testReportBox');
+            if (existingReportBox) {
+                existingReportBox.remove();
+            }
+
+            // Create the Test Report box
+            const testReportBox = document.createElement('div');
+            testReportBox.id = 'testReportBox';
+            testReportBox.className = 'box';
+            testReportBox.style.width = '1800px'; // Set the width to 4 times the original (300px * 4)
+            testReportBox.innerHTML = `
+                <h2>Test Report: ${sensorName}</h2>
+                <div class="box">Test Equipment</div>
+                <div class="box">Sensor Calibration Sheet 1 (a)</div>
+                <div class="box">Sensor Calibration Sheet 1 (b)</div>
+            `;
+
+            // Append the Test Report box to the body
+            document.body.appendChild(testReportBox);
         }
     </script>
 </body>
