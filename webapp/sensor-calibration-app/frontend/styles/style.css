@@ -126,3 +126,53 @@ footer {
     border-radius: 4px;
     width: 100px; /* Adjust width as needed */
 }
+
+.more-box {
+  position: absolute;
+  top: 40px; /* Adjust vertical position */
+  left: 180px; /* Adjust horizontal position */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Space between lines */
+  cursor: pointer;
+}
+
+.more-box .line {
+  width: 25px; /* Width of each line */
+  height: 3px; /* Height of each line */
+  background-color: #000; /* Line color */
+  border-radius: 2px; /* Rounded edges */
+}
+
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 0; /* Align with the top of the "More" box */
+  left: 30px; /* Position it to the right of the "More" box */
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1000;
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f4f4f4;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #000;
+}

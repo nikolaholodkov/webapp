@@ -5,10 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sensor Calibration Form</title>
   <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/main.js" defer></script>
 </head>
 <body>
   <div class="word-document">
     <header>
+      <div class="more-box" onclick="toggleDropdown()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div id="dropdown-menu" class="dropdown-menu">
+        <ul>
+          <li><a href="#view-equipment">View Equipment</a></li>
+          <li><a href="#view-responsibles">View Responsibles</a></li>
+        </ul>
+      </div>
       <div class="header-right">
         <span>Relazione Interna OGS:</span>
         <input type="text" id="ogs-report-id" name="ogs-report-id" placeholder="Enter ID">
@@ -28,6 +40,9 @@
 
         <label for="authors">Authors:</label>
         <input type="text" id="authors" name="authors" required>
+
+        <label for="unit">Unit:</label>
+        <input type="text" id="unit" name="unit" required>
 
         <button type="submit">Save</button>
       </form>
