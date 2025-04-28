@@ -147,8 +147,8 @@ footer {
 .dropdown-menu {
   display: none; /* Hidden by default */
   position: absolute;
-  top: 0; /* Align with the top of the "More" box */
-  left: 30px; /* Position it to the right of the "More" box */
+  top: 50px; /* Align with the top of the "More" box */
+  left: 190px; /* Move it further to the right */
   background-color: white;
   border: 1px solid #ccc;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
