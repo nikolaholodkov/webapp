@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Calibration Form</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div class="word-document">
+    <header>
+      <div class="header-right">
+        <span>Relazione Interna OGS:</span>
+        <input type="text" id="ogs-report-id" name="ogs-report-id" placeholder="Enter ID">
+      </div>
+      <h1>Test Report</h1>
+    </header>
+    <main>
+      <form>
+        <label for="sensor-name">Sensor Name:</label>
+        <input type="text" id="sensor-name" name="sensor-name" required>
+
+        <label for="calibration-date">Calibration Date:</label>
+        <input type="date" id="calibration-date" name="calibration-date" required>
+
+        <label for="calibration-notes">Calibration Notes:</label>
+        <textarea id="calibration-notes" name="calibration-notes" rows="5"></textarea>
+
+        <button type="submit">Save</button>
+      </form>
+    </main>
+  </div>
+</body>
+</html>
