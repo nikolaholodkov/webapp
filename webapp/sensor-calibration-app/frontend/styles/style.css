@@ -4,9 +4,9 @@ body {
   padding: 0;
   background-color: #f4f4f4;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
 }
 
 .document {
@@ -39,8 +39,13 @@ main {
   margin-bottom: 1in;
 }
 
-h1, h2 {
-  margin: 3em;
+h1 {
+  text-align: center; /* Center the text horizontally */
+  font-size: 2.5em; /* Adjust font size as needed */
+  margin-top: 100px; /* Move the h1 down by 20px */
+  margin-bottom: 0.5em; /* Add spacing below the heading */
+  border-bottom: 2px solid #000; /* Add a straight line below */
+  padding-bottom: 0.5em; /* Add spacing between text and line */
 }
 
 h2 {
@@ -50,11 +55,14 @@ h2 {
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust for element's own dimensions */
+  border-bottom: 2px solid #000; /* Add a straight line below */
+  padding-bottom: 0.5em; /* Add spacing between text and line */
 }
 
 form {
   display: flex;
   flex-direction: column;
+  margin-top: 1em; /* Add spacing between the line and the form */
 }
 
 label {
@@ -79,6 +87,12 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  padding: 0.5em; /* Maintain the height */
+  font-size: 1em;
+  border-radius: 4px;
+  width: 100px; /* Reduce the width */
+  align-self: flex-end; /* Align the button to the right within the form */
+  margin-top: 20px; /* Add spacing above the button */
 }
 
 button:hover {
@@ -94,7 +108,7 @@ footer {
 .header-right {
     position: absolute;
     top: 2.5em; /* Adjust vertical position */
-    right: 1.5em; /* Adjust horizontal position */
+    right: 11.5em; /* Adjust horizontal position */
     display: flex;
     align-items: center;
     gap: 0.5em; /* Space between text and input */
@@ -110,5 +124,5 @@ footer {
     font-size: 1em;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 200px; /* Adjust width as needed */
+    width: 100px; /* Adjust width as needed */
 }
