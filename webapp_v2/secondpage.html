@@ -23,32 +23,45 @@
           <a class="dropdown-item" href="#">View Responsibles</a>
         </div>
       </div>
-      <h1 class="title">Test Report</h1>
+      <h1 class="title">Test Equipment</h1>
       <main class="content">
         <div class="input-group flex-nowrap input-spacing input-right">
           <input type="text" class="form-control" placeholder="Relazione Interna OGS" aria-label="relazione-interna-ogs" aria-describedby="addon-wrapping">
         </div>
-        <div class="input-group flex-nowrap input-spacing">
-          <input type="text" class="form-control" placeholder="Test Report Name" aria-label="test-report-name" aria-describedby="addon-wrapping">
+        <div class="input-group flex-nowrap input-spacing input-right">
+            <input type="text" class="form-control" placeholder="Conductivity Level Testing" aria-label="conductivity-level-testing" aria-describedby="addon-wrapping">
+          </div>
+        
+        <div class="table-responsive mt-2">
+          <table class="table table-bordered" id="dynamicTable">
+            <tbody>
+              <tr>
+                <td><input type="text" class="form-control" placeholder="Instrument"></td>
+                <td><input type="text" class="form-control" placeholder="Model"></td>
+                <td><input type="text" class="form-control" placeholder="Serial Number"></td>
+                <td><input type="text" class="form-control" placeholder="Notes"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mt-1 mb-4">
+          <button class="btn btn-success btn-sm" onclick="addRow()">+</button>
+          <button class="btn btn-danger btn-sm" onclick="removeRow(this)">-</button>
         </div>
         <div class="input-group flex-nowrap input-spacing">
-          <input type="text" class="form-control" placeholder="Serial Number" aria-label="serial-number" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" placeholder="Uncertainty" aria-label="uncertainty" aria-describedby="addon-wrapping">
+          </div>
+        <div class="mt-2">
+          <textarea class="form-control" rows="4" placeholder="Enter any additional notes here..."></textarea>
         </div>
-        <div class="input-group flex-nowrap input-spacing">
-          <input type="text" class="form-control" placeholder="Propriety of" aria-label="property" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap input-spacing">
-          <input type="text" class="form-control" placeholder="Authors" aria-label="authors" aria-describedby="addon-wrapping">
-        </div>
-        <div class="input-group flex-nowrap input-spacing">
-          <input type="text" class="form-control" placeholder="Lab Unit" aria-label="lab-unit" aria-describedby="addon-wrapping">
-        </div>
-        <div class="button-group mt-4">
+        <div class="button-group mt-2" role="group" aria-label="First group">
+            <button class="btn btn-primary" onclick="goToPreviousPage()">Back</button>
             <button class="btn btn-primary" onclick="goToNextPage()">Next</button>
         </div>
-        <div class="button-group mt-4">
+        <div class="button-group mt-2">
             <button class="btn save-button" onclick="saveData()">Save</button>
         </div>
+        
       </main>
 
       <footer class="footer">
@@ -87,6 +100,27 @@
         // Replace 'next-page.html' with the actual URL of the next page
         window.location.href = 'secondpage.html';
       }
+
+      function addRow() {
+        const table = document.getElementById('dynamicTable').getElementsByTagName('tbody')[0];
+        const newRow = table.rows[0].cloneNode(true);
+        const inputs = newRow.getElementsByTagName('input');
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].value = ''; // Clear input values
+        }
+        table.appendChild(newRow);
+      }
+
+      function removeRow(button) {
+        const row = button.parentElement.parentElement;
+        const table = document.getElementById('dynamicTable').getElementsByTagName('tbody')[0];
+        if (table.rows.length > 1) {
+          table.removeChild(row);
+        } else {
+          alert('At least one row must remain.');
+        }
+      }
     </script>
-  </body>
+    <script src="scripts.js"></script>
+    </body>
 </html>
