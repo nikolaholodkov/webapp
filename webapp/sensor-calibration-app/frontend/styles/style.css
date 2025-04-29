@@ -127,6 +127,23 @@ button:hover {
   background-color: #218838; /* Darker green on hover */
 }
 
+/* Style for small buttons */
+button.small-button {
+  background-color: #d3d3d3; /* Light grey color */
+  color: #000; /* Black text */
+  border: 1px solid #ccc; /* Subtle border */
+  font-size: 0.7em; /* Further reduced font size */
+  padding: 0.2em 0.4em; /* Smaller padding */
+  height: 25px; /* Consistent height */
+  width: 25px; /* Consistent width */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button.small-button:hover {
+  background-color: #c0c0c0; /* Slightly darker grey on hover */
+}
+
 footer {
   text-align: center;
   font-size: 0.8em;
@@ -201,4 +218,23 @@ footer {
 .dropdown-menu a {
   text-decoration: none;
   color: #000;
+}
+
+/* Style for the instrument table */
+#instrument-table {
+  width: 100%; /* Match the width of form inputs */
+  border-collapse: collapse; /* Remove gaps between table borders */
+  margin-top: 0px; /* Reduced margin to match input spacing */
+}
+
+#instrument-table th, #instrument-table td {
+  border: 1px solid #ccc; /* Add borders to table cells */
+  padding: 4px; /* Add padding inside cells */
+  text-align: left; /* Align text to the left */
+}
+
+#instrument-table input {
+  width: 100%; /* Make input fields span the full width of the cell */
+  box-sizing: border-box; /* Include padding and border in width */
+  height: 20px; /* Adjust input height to match reduced row height */
 }

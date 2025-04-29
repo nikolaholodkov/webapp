@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Calibration - Page 2</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div class="word-document">
+    <header>
+      <div class="more-box" onclick="toggleDropdown()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div id="dropdown-menu" class="dropdown-menu">
+        <ul>
+          <li><a href="#view-reports">View Reports</a></li>
+          <li><a href="#view-equipment">View Equipment</a></li>
+          <li><a href="#view-responsibles">View Responsibles</a></li>
+        </ul>
+      </div>
+      <div class="header-right">
+        <span>Relazione Interna OGS:</span>
+        <input type="text" id="ogs-report-id" name="ogs-report-id" placeholder="Enter ID">
+      </div>
+      <h1>Test Report</h1>
+    </header>
+    <main>
+      <form>
+        <!-- Existing input for "Units Under Test" -->
+        <label for="units-under-test">Units Under Test:</label>
+        <input type="text" id="units-under-test" name="units-under-test" placeholder="Enter units under test">
+
+        <label for="conductivity-testing-level">Conductivity Testing Level:</label>
+        <input type="text" id="conductivity-testing-level" name="conductivity-testing-level" placeholder="Enter the conductivity testing Level">
+
+        <!-- Input table for instruments -->
+        <label for="instrument-table">Test equipment:</label>
+        <table id="instrument-table">
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th>Model</th>
+              <th>Serial Number</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="instrument[]" placeholder="Enter instrument"></td>
+              <td><input type="text" name="model[]" placeholder="Enter model"></td>
+              <td><input type="text" name="serial-number[]" placeholder="Enter serial number"></td>
+              <td><input type="text" name="notes[]" placeholder="Enter notes"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Add and Remove Row Buttons -->
+        <div style="margin-top: -10px;"> <!-- Reduced margin-top -->
+          <button type="button" class="small-button" onclick="addRow()">+</button>
+          <button type="button" class="small-button" onclick="removeRow()">-</button>
+        </div>
+
+        <label for="uncertainty">Uncertainty:</label>
+        <input type="text" id="uncertainty" name="uncertainty" placeholder="Enter the uncertainty">
+
+        <label for="additional-info">Additional Information:</label>
+        <textarea id="additional-info" name="additional-info" rows="5"></textarea>
+
+        <button type="button" onclick="goBack()">Back</button>
+        <button type="submit" class="secondary-button">Save</button>
+      </form>
+
+      
+    </main>
+    <footer>
+      <hr>
+      <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666; text-align: left;">
+        <div style="text-align: left;">
+          OGS (Istituto Nazionale di Oceanografia e di Geofisica Sperimentale), Sezione OCE
+        </div>
+        <div style="text-align: right;">
+          CTMO Unit, $
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function goBack() {
+      window.location.href = "index.html"; // Navigate back to the first page
+    }
+
+    function addRow() {
+      const table = document.getElementById("instrument-table").getElementsByTagName("tbody")[0];
+      const newRow = table.insertRow();
+      newRow.innerHTML = `
+        <td><input type="text" name="instrument[]" placeholder="Enter instrument"></td>
+        <td><input type="text" name="model[]" placeholder="Enter model"></td>
+        <td><input type="text" name="serial-number[]" placeholder="Enter serial number"></td>
+        <td><input type="text" name="notes[]" placeholder="Enter notes"></td>
+      `;
+    }
+
+    function removeRow() {
+      const table = document.getElementById("instrument-table").getElementsByTagName("tbody")[0];
+      if (table.rows.length > 1) {
+        table.deleteRow(table.rows.length - 1);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Report - Page 3</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div class="word-document">
+    <header>
+      <div class="more-box" onclick="toggleDropdown()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <div id="dropdown-menu" class="dropdown-menu">
+        <ul>
+          <li><a href="#view-reports">View Reports</a></li>
+          <li><a href="#view-equipment">View Equipment</a></li>
+          <li><a href="#view-responsibles">View Responsibles</a></li>
+        </ul>
+      </div>
+      <div class="header-right">
+        <span>Relazione Interna OGS:</span>
+        <input type="text" id="ogs-report-id" name="ogs-report-id" placeholder="Enter ID">
+      </div>
+      <h1>Test Report - Page 3</h1>
+    </header>
+    <main>
+      <form>
+        <label for="additional-notes">Additional Notes:</label>
+        <textarea id="additional-notes" name="additional-notes" rows="5" placeholder="Enter additional notes"></textarea>
+
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+          <button type="button" onclick="goBackToPage2()">Back</button>
+          <button type="submit" class="secondary-button">Save</button>
+        </div>
+      </form>
+    </main>
+    <footer>
+      <hr>
+      <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666; text-align: left;">
+        <div style="text-align: left;">
+          OGS (Istituto Nazionale di Oceanografia e di Geofisica Sperimentale), Sezione OCE
+        </div>
+        <div style="text-align: right;">
+          CTMO Unit, $
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function goBackToPage2() {
+      window.location.href = "page2.html"; // Navigate back to the second page
+    }
+  </script>
+</body>
+</html>
