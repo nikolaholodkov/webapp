@@ -73,3 +73,25 @@ body, html {
 .footer a:hover {
     text-decoration: underline;
 }
+
+.dropdown-offset {
+    margin-left: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    }
+
+.save-button {
+    background-color: #28a745;
+    color: white; /* Bootstrap green color */
+    display: flex;
+    justify-content: flex-end;
+    }
+
+.save-button:hover {
+    background-color: #218838;
+    color: white; /* Darker green on hover */
+}

@@ -15,7 +15,7 @@
     <div class="a4-page">
       <div class="dropdown mb-3">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Options
+          Menu
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="#">View Reports</a>
@@ -26,22 +26,28 @@
       <h1 class="title">Test Report</h1>
       <main class="content">
         <div class="input-group flex-nowrap input-spacing input-right">
-            <input type="text" class="form-control" placeholder="Relazione Interna OGS" aria-label="relazione-interna-ogs" aria-describedby="addon-wrapping">
+          <input type="text" class="form-control" placeholder="Relazione Interna OGS" aria-label="relazione-interna-ogs" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap input-spacing">
-            <input type="text" class="form-control" placeholder="Test Report Name" aria-label="test-report-name" aria-describedby="addon-wrapping">
+          <input type="text" class="form-control" placeholder="Test Report Name" aria-label="test-report-name" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap input-spacing">
-            <input type="text" class="form-control" placeholder="Serial Number" aria-label="serial-number" aria-describedby="addon-wrapping">
+          <input type="text" class="form-control" placeholder="Serial Number" aria-label="serial-number" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap input-spacing">
-            <input type="text" class="form-control" placeholder="Propriety of" aria-label="property" aria-describedby="addon-wrapping">
+          <input type="text" class="form-control" placeholder="Propriety of" aria-label="property" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap input-spacing">
-            <input type="text" class="form-control" placeholder="Authors" aria-label="authors" aria-describedby="addon-wrapping">
+          <input type="text" class="form-control" placeholder="Authors" aria-label="authors" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap input-spacing">
-            <input type="text" class="form-control" placeholder="Lab Unit" aria-label="lab-unit" aria-describedby="addon-wrapping">
+          <input type="text" class="form-control" placeholder="Lab Unit" aria-label="lab-unit" aria-describedby="addon-wrapping">
+        </div>
+        <div class="button-group mt-4">
+            <button class="btn btn-primary" onclick="goToNextPage()">Next</button>
+        </div>
+        <div class="button-group mt-4">
+            <button class="btn save-button" onclick="saveData()">Save</button>
         </div>
       </main>
 
@@ -71,5 +77,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      function saveData() {
+        // Add your save logic here
+        alert('Data saved successfully!');
+      }
+
+      function goToNextPage() {
+        // Replace 'next-page.html' with the actual URL of the next page
+        window.location.href = 'next-page.html';
+      }
+    </script>
   </body>
 </html>
