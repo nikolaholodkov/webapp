@@ -56,7 +56,7 @@ h1 {
   padding-top: 20px; /* Add spacing above the title */
   text-align: center;
   border-bottom: 2px solid #000; /* Add a straight line below */
-  padding-bottom: 0.5em; /* Add spacing between text and line */
+  padding-bottom: 0em; /* Add spacing between text and line */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

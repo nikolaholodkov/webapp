@@ -1,0 +1,75 @@
+/* filepath: c:\Users\nholodkov\OneDrive - OGS\Projects\OSCAR\webapp_v2\css\styles.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Light gray background to simulate a workspace */
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.a4-page {
+    width: 210mm; /* A4 width */
+    height: 297mm; /* A4 height */
+    max-width: 100%; /* Ensure it doesn't exceed the screen width */
+    max-height: 100%; /* Ensure it doesn't exceed the screen height */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for realism */
+    border: 1px solid #ddd; /* Light border to simulate paper edges */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; /* Add padding to prevent overflow */
+    box-sizing: border-box; /* Ensure padding is included in the dimensions */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem; /* Reduce font size to fit within the page */
+    margin: 0; /* Remove extra margins */
+    padding: 1rem 0; /* Reduce padding for spacing */
+    font-weight: bold;
+    word-wrap: break-word; /* Ensure long text wraps */
+}
+
+.content {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.input-spacing {
+    margin-bottom: 1rem; /* Adjust the value as needed */
+}
+
+.input-right {
+    margin-left: auto;
+    width: 25%;
+}
+
+.footer {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 1rem 0;
+    font-size: 0.75rem;
+    border-top: 1px solid #ddd; /* Subtle border for separation */
+}
+
+.footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer a {
+    color: #007bff; /* Bootstrap primary color for links */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
