@@ -30,20 +30,31 @@ body {
   box-sizing: border-box; /* Include padding in width/height calculations */
 }
 
+/* Ensure the header layout is properly aligned */
 header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between; /* Space between the left and right elements */
+  align-items: center; /* Align items vertically */
+  position: relative; /* Allow positioning of the centered title */
   margin-bottom: 1in;
+  padding: 0 20mm; /* Add padding to match the A4 layout */
+  box-sizing: border-box;
 }
 
 main {
   margin-bottom: 1in;
 }
 
+/* Center the "Test Report" title */
 h1 {
-  text-align: center; /* Center the text horizontally */
+  position: absolute;
+  top: 100%; /* Position below the header elements */
+  left: 50%;
+  transform: translate(-50%, 0); /* Center horizontally */
   font-size: 2.5em; /* Adjust font size as needed */
-  margin-top: 100px; /* Move the h1 down by 20px */
-  margin-bottom: 0.5em; /* Add spacing below the heading */
+  margin: 0; /* Remove default margin */
+  padding-top: 20px; /* Add spacing above the title */
+  text-align: center;
   border-bottom: 2px solid #000; /* Add a straight line below */
   padding-bottom: 0.5em; /* Add spacing between text and line */
 }
@@ -99,42 +110,57 @@ button:hover {
   background-color: #0056b3;
 }
 
+.secondary-button {
+  background-color: #28a745; /* Green color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em;
+  font-size: 1em;
+  border-radius: 4px;
+  width: 100px; /* Same width as the Save button */
+  align-self: flex-end; /* Align the button to the right within the form */
+  margin-top: 10px; /* Add spacing above the button */
+}
+
+.secondary-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
 footer {
   text-align: center;
   font-size: 0.8em;
   color: #666;
 }
 
+/* Style for the "header-right" */
 .header-right {
-    position: absolute;
-    top: 2.5em; /* Adjust vertical position */
-    right: 11.5em; /* Adjust horizontal position */
-    display: flex;
-    align-items: center;
-    gap: 0.5em; /* Space between text and input */
-    font-size: 1em; /* Adjust font size */
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Space between text and input */
+  font-size: 1em; /* Adjust font size */
+  margin-right: -75px; /* Move slightly to the right */
 }
 
 .header-right span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .header-right input {
-    padding: 0.3em;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100px; /* Adjust width as needed */
+  padding: 0.3em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px; /* Adjust width as needed */
 }
 
+/* Style for the "more box" */
 .more-box {
-  position: absolute;
-  top: 40px; /* Adjust vertical position */
-  left: 180px; /* Adjust horizontal position */
   display: flex;
   flex-direction: column;
   gap: 5px; /* Space between lines */
   cursor: pointer;
+  margin-left: -75px; /* Move slightly to the left */
 }
 
 .more-box .line {
@@ -147,8 +173,8 @@ footer {
 .dropdown-menu {
   display: none; /* Hidden by default */
   position: absolute;
-  top: 50px; /* Align with the top of the "More" box */
-  left: 190px; /* Move it further to the right */
+  top: 25px; /* Align with the top of the "More" box */
+  left: 15px; /* Move it further to the right */
   background-color: white;
   border: 1px solid #ccc;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
