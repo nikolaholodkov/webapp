@@ -25,19 +25,13 @@
         <span>Relazione Interna OGS:</span>
         <input type="text" id="ogs-report-id" name="ogs-report-id" placeholder="Enter ID">
       </div>
-      <h1>Test Report</h1>
+      <h1>Test Equipment</h1>
     </header>
     <main>
       <form>
-        <!-- Existing input for "Units Under Test" -->
-        <label for="units-under-test">Units Under Test:</label>
-        <input type="text" id="units-under-test" name="units-under-test" placeholder="Enter units under test">
-
-        <label for="conductivity-testing-level">Conductivity Testing Level:</label>
-        <input type="text" id="conductivity-testing-level" name="conductivity-testing-level" placeholder="Enter the conductivity testing Level">
-
-        <!-- Input table for instruments -->
-        <label for="instrument-table">Test equipment:</label>
+        <input type="text" id="units-under-test" name="units-under-test" placeholder="Unit under test">
+        <input type="number" id="conductivity-testing-level" name="conductivity-testing-level" placeholder="Conductivity testing level">
+        
         <table id="instrument-table">
           <thead>
             <tr>
@@ -57,23 +51,21 @@
           </tbody>
         </table>
 
-        <!-- Add and Remove Row Buttons -->
-        <div style="margin-top: -10px;"> <!-- Reduced margin-top -->
+        <div>
           <button type="button" class="small-button" onclick="addRow()">+</button>
           <button type="button" class="small-button" onclick="removeRow()">-</button>
         </div>
 
-        <label for="uncertainty">Uncertainty:</label>
         <input type="text" id="uncertainty" name="uncertainty" placeholder="Enter the uncertainty">
+        <textarea id="additional-info" name="additional-info" rows="5" placeholder="Additional Information"></textarea>
 
-        <label for="additional-info">Additional Information:</label>
-        <textarea id="additional-info" name="additional-info" rows="5"></textarea>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" onclick="goBack()">Back</button>
+          <button type="button" onclick="goNext()">Next</button>
+        </div>
 
-        <button type="button" onclick="goBack()">Back</button>
         <button type="submit" class="secondary-button">Save</button>
       </form>
-
-      
     </main>
     <footer>
       <hr>
@@ -90,6 +82,10 @@
   <script>
     function goBack() {
       window.location.href = "index.html"; // Navigate back to the first page
+    }
+
+    function goNext() {
+      window.location.href = "page3.html"; // Navigate to the third page
     }
 
     function addRow() {

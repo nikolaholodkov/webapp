@@ -25,14 +25,36 @@
         <span>Relazione Interna OGS:</span>
         <input type="text" id="ogs-report-id" name="ogs-report-id" placeholder="Enter ID">
       </div>
-      <h1>Test Report - Page 3</h1>
+      <h1 class="header-title">
+        Sensor Calibration Sheet – 1 (a)
+      </h1>
     </header>
     <main>
       <form>
-        <label for="additional-notes">Additional Notes:</label>
-        <textarea id="additional-notes" name="additional-notes" rows="5" placeholder="Enter additional notes"></textarea>
+        <div class="form-row">
+          <input type="date" id="test-date" name="test-date" placeholder="Date">
+          <input type="text" id="units-under-test" name="units-under-test" placeholder="Unit under test" class="align-right">
+        </div>
 
-        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <div class="form-row">
+          <input type="text" id="temperature" name="temperature" placeholder="Temperature (°C)">
+        </div>
+
+        <div class="form-row">
+          <input type="text" id="humidity" name="humidity" placeholder="Humidity (%)">
+        </div>
+
+        <div class="form-row">
+          <input type="text" id="atmospheric" name="atmospheric" placeholder="Atm Pressure (hPa)">
+        </div>
+      </form>
+
+      <h2 class="section-title">
+        Calibration Data – 1 (a)
+      </h2>
+
+      <form>  
+        <div class="form-actions">
           <button type="button" onclick="goBackToPage2()">Back</button>
           <button type="submit" class="secondary-button">Save</button>
         </div>
@@ -40,11 +62,11 @@
     </main>
     <footer>
       <hr>
-      <div style="display: flex; justify-content: space-between; font-size: 0.8em; color: #666; text-align: left;">
-        <div style="text-align: left;">
+      <div class="footer-content">
+        <div>
           OGS (Istituto Nazionale di Oceanografia e di Geofisica Sperimentale), Sezione OCE
         </div>
-        <div style="text-align: right;">
+        <div>
           CTMO Unit, $
         </div>
       </div>
