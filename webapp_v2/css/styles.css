@@ -127,3 +127,57 @@ body, html {
   height: 38px; /* Match the height of Bootstrap input fields */
   vertical-align: middle; /* Center-align text vertically */
 }
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-button {
+    padding: 8px 12px;
+    background-color: #bbc0c4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px; /* Slightly rounded edges */
+}
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    padding: 10px 10px;
+    display: block;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+.ogs-input1 {
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 1.1rem;
+}
+
+
