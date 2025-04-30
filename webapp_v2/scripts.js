@@ -4,11 +4,21 @@ function saveData() {
 }
 
 function goToPreviousPage() {
-  // Replace 'previous-page.html' with the actual URL of the previous page
-  window.location.href = 'index.html';
+  const currentPage = window.location.pathname.split('/').pop();
+
+  if (currentPage === 'secondpage.html') {
+    window.location.href = 'index.html';
+  } else if (currentPage === 'thirdpage.html') {
+    window.location.href = 'secondpage.html';
+  }
 }
 
 function goToNextPage() {
-  // Replace 'next-page.html' with the actual URL of the next page
-  window.location.href = 'secondpage.html';
+  const currentPage = window.location.pathname.split('/').pop();
+
+  if (currentPage === 'index.html') {
+    window.location.href = 'secondpage.html';
+  } else if (currentPage === 'secondpage.html') {
+    window.location.href = 'thirdpage.html';
+  }
 }
