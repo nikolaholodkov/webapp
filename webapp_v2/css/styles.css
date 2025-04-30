@@ -53,6 +53,11 @@ body, html {
     width: 25%;
 }
 
+.input-left {
+    margin-right: auto;
+    width: 25%;
+}
+
 .footer {
     background-color: #f8f9fa; /* Light gray background */
     padding: 1rem 0;
@@ -109,4 +114,16 @@ body, html {
 .back-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
     color: white;
+}
+
+#dynamicTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+#dynamicTable td {
+  height: 38px; /* Match the height of Bootstrap input fields */
+  vertical-align: middle; /* Center-align text vertically */
 }
