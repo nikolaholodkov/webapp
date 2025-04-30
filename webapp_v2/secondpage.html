@@ -13,41 +13,65 @@
   </head>
   <body>
     <div class="a4-page">
-      <div class="dropdown mb-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Menu
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">View Reports</a>
-          <a class="dropdown-item" href="#">View Equipment</a>
-          <a class="dropdown-item" href="#">View Responsibles</a>
-        </div>
-      </div>
-      <h1 class="title">Test Equipment</h1>
       <main class="content">
-        <div class="input-group flex-nowrap input-spacing input-right">
-          <input type="text" class="form-control" placeholder="Relazione Interna OGS" aria-label="relazione-interna-ogs" aria-describedby="addon-wrapping">
+        <div class="top-bar">
+            <div class="dropdown">
+              <button class="dropdown-button">Menu</button>
+              <div class="dropdown-content">
+                <a href="#">View Reports</a>
+                <a href="#">View Equipment</a>
+                <a href="#">View Responsibles</a>
+              </div>
+            </div>
+            <p type="text" class="ogs-input1" style="word-wrap: break-word; white-space: normal; text-align: right;">
+                <strong>Relazione Interna OGS - $</strong><br>
+                <strong>Unit Under Test - $</strong>
+            </p>
         </div>
+
+        <h1 class="title">Test Equipment</h1>
+      <main class="content">
+        
         <div class="input-group flex-nowrap input-spacing input-right">
             <input type="text" class="form-control" placeholder="Conductivity Level Testing" aria-label="conductivity-level-testing" aria-describedby="addon-wrapping">
           </div>
         
-        <div class="table-responsive mt-2">
-          <table class="table table-bordered" id="dynamicTable">
-            <tbody>
+          
+          <div class="table-responsive mt-2 mx-auto" style="width: 100%;">
+              <table class="table table-bordered" id="dynamicTable" style="table-layout: fixed; width: 100%;">
+          <colgroup>
+              <col style="width: 25%;">
+              <col style="width: 25%;">
+              <col style="width: 25%;">
+              <col style="width: 25%;">
+            </colgroup>
+          <thead>
               <tr>
-                <td><input type="text" class="form-control" placeholder="Instrument"></td>
-                <td><input type="text" class="form-control" placeholder="Model"></td>
-                <td><input type="text" class="form-control" placeholder="Serial Number"></td>
-                <td><input type="text" class="form-control" placeholder="Notes"></td>
+                  <th style="vertical-align: middle;">Instrument</th>
+                  <th style="vertical-align: middle;">Model</th>
+                  <th style="vertical-align: middle;">Serial Number</th>
+                  <th style="vertical-align: middle;">Notes</th>
+                  </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td contenteditable="true"></td>
+                  <td contenteditable="true"></td>
+                  <td contenteditable="true"></td>
+                  <td contenteditable="true"></td>
               </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="mt-1 mb-4">
-          <button class="btn btn-success btn-sm" onclick="addRow()">+</button>
-          <button class="btn btn-danger btn-sm" onclick="removeRow(this)">-</button>
-        </div>
+          </tbody>
+      </table>
+  </div>
+  
+          <!-- Add the right-aligned paragraph -->
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 0; margin-bottom: 2rem;">
+              <div>
+                <button style="margin-right: 8px;" onclick="addRow()">+</button>
+                <button onclick="removeRow(this)">-</button>
+              </div>
+              
+            </div>
         <div class="input-group flex-nowrap input-spacing">
             <input type="text" class="form-control" placeholder="Uncertainty" aria-label="uncertainty" aria-describedby="addon-wrapping">
           </div>

@@ -180,4 +180,10 @@ body, html {
     font-size: 1.1rem;
 }
 
-
+.ogs-input {
+    width: 200px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 8px; /* Adds rounded edges */
+    border: 1px solid #ccc; /* Grey border */
+}
