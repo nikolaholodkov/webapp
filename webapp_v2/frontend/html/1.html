@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>Sensor Calibration App</title>
+  </head>
+  <body>
+    <div class="a4-page">
+      <div class="top-bar">
+        <div class="dropdown">
+          <button class="dropdown-button">Menu</button>
+          <div class="dropdown-content">
+            <a href="#">View Reports</a>
+            <a href="#">View Equipment</a>
+            <a href="#">View Responsibles</a>
+          </div>
+        </div>
+        <input type="text" class="ogs-input" placeholder="Relazione Interna OGS">
+      </div>
+
+      <h1 class="title">Test Report</h1>
+      <main class="content">
+        <form id="reportForm">
+          <div class="input-group flex-nowrap input-spacing">
+            <input type="text" class="form-control" name="testReportName" placeholder="Test Report Name" required>
+          </div>
+          <div class="input-group flex-nowrap input-spacing">
+            <input type="text" class="form-control" name="serialNumber" placeholder="Serial Number" required>
+          </div>
+          <div class="input-group flex-nowrap input-spacing">
+            <input type="text" class="form-control" name="property" placeholder="Propriety of" required>
+          </div>
+          <div class="input-group flex-nowrap input-spacing">
+            <input type="text" class="form-control" name="authors" placeholder="Authors" required>
+          </div>
+          <div class="input-group flex-nowrap input-spacing">
+            <input type="text" class="form-control" name="labUnit" placeholder="Lab Unit" required>
+          </div>
+          <div class="mt-2">
+            <textarea class="form-control" name="notes" rows="4" placeholder="Enter any additional notes here..."></textarea>
+          </div>
+          <div class="button-container text-right">
+            <button class="btn btn-primary" type="next" onclick="goToNextPage()">Next</button>
+            <button class="btn btn-success" type="submit">Save</button>
+          </div>
+        </form>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-3">
+              <p>Borgo Grotta Gigante 42/C<br>34010 Sgonico (Trieste)</p>
+            </div>
+            <div class="col-md-3">
+              <p>Tel. +39 040 21401<br>Fax +39 040 327307</p>
+            </div>
+            <div class="col-md-3">
+              <p>Cod. Fisc. e Partita IVA: 00055590327<br>CEE IT 00055590327</p>
+            </div>
+            <div class="col-md-3">
+              <p>
+                <a href="http://www.ogs.trieste.it" target="_blank">http://www.ogs.trieste.it</a><br>
+                E-mail: <a href="mailto:mailbox@ogs.trieste.it">mailbox@ogs.trieste.it</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../js/scripts.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>Sensor Calibration App</title>
+  </head>
+  <body>
+    <div class="a4-page">
+      <div class="top-bar">
+        <div class="dropdown">
+          <button class="dropdown-button">Menu</button>
+          <div class="dropdown-content">
+            <a href="#">View Reports</a>
+            <a href="#">View Equipment</a>
+            <a href="#">View Responsibles</a>
+          </div>
+        </div>
+        <div>
+          <p type="text" class="ogs-input1" style="word-wrap: break-word; white-space: normal; text-align: right;">
+            <strong>Relazione Interna OGS - $</strong><br>
+            <strong>Unit Under Test - $</strong>
+          </p>
+        </div>
+      </div>
+
+      <h1 class="title">Conclusions</h1>
+      <main class="content">
+        <div class="mt-2">
+          <textarea class="form-control" rows="4" placeholder="Enter the conclusions here..."></textarea>
+        </div>
+        <br>
+
+        <p><strong>References</strong></p>
+        <div class="mt-2">
+          <textarea class="form-control" rows="4" placeholder="Enter the references here..."></textarea>
+        </div>
+        <br>
+
+        
+      </main>
+
+      <div class="button-container text-right">
+        <button class="btn btn-primary" type="back" onclick="goToPreviousPage()">Back</button>
+        <button class="btn btn-success" type="save" onclick="saveData()">Save</button>
+      </div>
+      
+
+      <div id="paragraph_end">
+        <p>
+          The reported results are to be considered valid only for the specified instrument/s or sensor/s and the 
+          declared test conditions. <br> This document is confidential; access to this document, or parts thereof, in any form is restricted to 
+          authorised persons only.
+        </p>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-6">
+              <p>OGS (Istituto Nazionale di Oceanografia e di Geofisica Sperimentale), Sezione OCE</p>
+            </div>
+            <div class="col-md-6">
+              <p>CTMO Unit, $</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap@4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="../js/scripts.js"></script>
+  </body>
+</html>

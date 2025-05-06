@@ -1,0 +1,208 @@
+/* filepath: c:\Users\nholodkov\OneDrive - OGS\Projects\OSCAR\webapp_v2\css\styles.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Light gray background to simulate a workspace */
+}
+
+.d-flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.a4-page {
+    width: 210mm; /* A4 width */
+    height: 297mm; /* A4 height */
+    max-width: 100%; /* Ensure it doesn't exceed the screen width */
+    max-height: 100%; /* Ensure it doesn't exceed the screen height */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for realism */
+    border: 1px solid #ddd; /* Light border to simulate paper edges */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; /* Add padding to prevent overflow */
+    box-sizing: border-box; /* Ensure padding is included in the dimensions */
+    overflow: hidden; /* Prevent content from overflowing */
+    min-height: 100vh; /* Ensure it takes the full viewport height */
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem; /* Reduce font size to fit within the page */
+    margin: 0; /* Remove extra margins */
+    padding: 1rem 0; /* Reduce padding for spacing */
+    font-weight: bold;
+    word-wrap: break-word; /* Ensure long text wraps */
+}
+
+.content {
+    flex: 1; /* Take up remaining space */
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.input-spacing {
+    margin-bottom: 1rem; /* Adjust the value as needed */
+}
+
+.input-right {
+    margin-left: auto;
+    width: 25%;
+}
+
+.input-left {
+    margin-right: auto;
+    width: 25%;
+}
+
+.footer {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 1rem 0;
+    font-size: 0.75rem;
+    border-top: 1px solid #ddd; /* Subtle border for separation */
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+.footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer a {
+    color: #007bff; /* Bootstrap primary color for links */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.dropdown-offset {
+    margin-left: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    
+    }
+
+.save-button {
+    background-color: #28a745;
+    color: white; /* Bootstrap green color */
+    display: flex;
+    justify-content: flex-end;
+    }
+
+.save-button:hover {
+    background-color: #218838;
+    color: white; /* Darker green on hover */
+}
+
+.back-button {
+    background-color: #007bff; /* Bootstrap primary blue color */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: white;
+}
+
+#dynamicTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+#dynamicTable td {
+  height: 38px; /* Match the height of Bootstrap input fields */
+  vertical-align: middle; /* Center-align text vertically */
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+.dropdown {
+    position: relative;
+  }
+  
+.dropdown-button {
+    padding: 8px 12px;
+    background-color: #bbc0c4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px; /* Slightly rounded edges */
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+.dropdown-content a {
+    padding: 10px 10px;
+    display: block;
+    color: black;
+    text-decoration: none;
+  }
+  
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+.ogs-input1 {
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 0.9rem;
+}
+
+.ogs-input {
+    width: 200px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 8px; /* Adds rounded edges */
+    border: 1px solid #ccc; /* Grey border */
+}
+
+
+#paragraph_end {
+    font-size: 0.7rem; /* Smaller font size */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Justify-align the text */
+    margin-top: 1rem; /* Add spacing above */
+    margin-bottom: 0.5rem; /* Add spacing below */
+    color: #333; /* Dark gray text color */
+}
+
+.mt-2 {
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+
