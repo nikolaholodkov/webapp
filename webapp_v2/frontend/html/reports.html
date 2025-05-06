@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports</title>
+</head>
+<body>
+  <h1>Reports</h1>
+  <table id="reportsTable" border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Test Report Name</th>
+        <th>Serial Number</th>
+        <th>Property</th>
+        <th>Authors</th>
+        <th>Lab Unit</th>
+        <th>Notes</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <script>
+    async function fetchReports() {
+      try {
+        const response = await fetch('http://localhost:3000/api/reports');
+        const reports = await response.json();
+
+        const tableBody = document.getElementById('reportsTable').getElementsByTagName('tbody')[0];
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        reports.forEach(report => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${report.id}</td>
+            <td>${report.test_report_name}</td>
+            <td>${report.serial_number}</td>
+            <td>${report.property}</td>
+            <td>${report.authors}</td>
+            <td>${report.lab_unit}</td>
+            <td>${report.notes}</td>
+            <td>${report.created_at}</td>
+          `;
+          tableBody.appendChild(row);
+        });
+      } catch (err) {
+        console.error('Error fetching reports:', err);
+      }
+    }
+
+    // Fetch reports when the page loads
+    window.onload = fetchReports;
+  </script>
+</body>
+</html>

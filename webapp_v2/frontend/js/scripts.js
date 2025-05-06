@@ -46,6 +46,9 @@ function removeRow(button) {
   }
 }
 
+
+
+
 document.getElementById('reportForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -67,4 +70,7 @@ document.getElementById('reportForm').addEventListener('submit', async (e) => {
   }
 });
 
+document.getElementById('viewReports').addEventListener('click', () => {
+  window.location.href = 'reports.html';
+});
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const db = require('./db');
+const db = require('./db'); // Assuming db.js handles the database connection
 
 const app = express();
 const PORT = 3000;
@@ -10,7 +10,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Routes
+// Route to submit data
 app.post('/submit', async (req, res) => {
   const { testReportName, serialNumber, property, authors, labUnit, notes } = req.body;
 
@@ -23,6 +23,17 @@ app.post('/submit', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send({ error: 'Failed to save data' });
+  }
+});
+
+// Route to fetch reports data
+app.get('/api/reports', async (req, res) => {
+  try {
+    const result = await db.query('SELECT * FROM reports'); // Query the reports table
+    res.json(result.rows); // Send the data as JSON
+  } catch (err) {
+    console.error('Error fetching reports:', err);
+    res.status(500).send({ error: 'Error fetching reports data' });
   }
 });
 
