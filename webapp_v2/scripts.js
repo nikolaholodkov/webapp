@@ -6,36 +6,28 @@ function saveData() {
 function goToPreviousPage() {
   const currentPage = window.location.pathname.split('/').pop();
 
-  if (currentPage === 'secondpage.html') {
-    window.location.href = 'index.html';
-  } else if (currentPage === 'thirdpage.html') {
-    window.location.href = 'secondpage.html';
-  } else if (currentPage === 'fourthpage.html') {
-    const userResponse = confirm("Are you sure you want to go back to the third page?");
-    if (userResponse) {
-      window.location.href = 'thirdpage.html';
-    } else {
-      alert("Stayed on the current page.");
-    }
+  if (currentPage === '2.html') {
+    window.location.href = '1.html';
+  } else if (currentPage === '3.html') {
+    window.location.href = '2.html';
+  } else if (currentPage === '4.html') {
+    window.location.href = '3.html';
+  } else if (currentPage === '5.html') {
+    window.location.href = '4.html';
   }
 }
 
 function goToNextPage() {
   const currentPage = window.location.pathname.split('/').pop();
 
-  if (currentPage === 'secondpage.html') {
-    // Navigate to the third page
-    window.location.href = 'thirdpage.html';
-  } else if (currentPage === 'thirdpage.html') {
-    // Show a confirmation dialog specific to the third page
-    const userResponse = confirm("Calibration needed?");
-    if (userResponse) {
-      // If "Yes" is clicked, navigate to the fourth page
-      window.location.href = 'fourthpage.html'; // Replace with the actual URL of the next page
-    } else {
-      // If "No" is clicked, do nothing
-      alert("Calibration skipped.");
-    }
+  if (currentPage === '1.html') {
+    window.location.href = '2.html';
+  } else if (currentPage === '2.html') {
+    window.location.href = '3.html';
+  } else if (currentPage === '3.html') {
+    window.location.href = '4.html';
+  } else if (currentPage === '4.html') {
+    window.location.href = '5.html';
   }
 }
 

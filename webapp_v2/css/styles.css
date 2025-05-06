@@ -27,6 +27,7 @@ body, html {
     padding: 1rem; /* Add padding to prevent overflow */
     box-sizing: border-box; /* Ensure padding is included in the dimensions */
     overflow: hidden; /* Prevent content from overflowing */
+    min-height: 100vh; /* Ensure it takes the full viewport height */
 }
 
 .title {
@@ -39,7 +40,7 @@ body, html {
 }
 
 .content {
-    flex: 1;
+    flex: 1; /* Take up remaining space */
     padding: 1rem;
     overflow-y: auto;
 }
@@ -63,6 +64,7 @@ body, html {
     padding: 1rem 0;
     font-size: 0.75rem;
     border-top: 1px solid #ddd; /* Subtle border for separation */
+    margin-top: auto; /* Push footer to the bottom */
 }
 
 .footer p {
@@ -87,6 +89,7 @@ body, html {
     display: flex;
     justify-content: flex-end;
     color: white;
+    
     }
 
 .save-button {
@@ -135,11 +138,11 @@ body, html {
     margin-bottom: 20px;
   }
   
-  .dropdown {
+.dropdown {
     position: relative;
   }
   
-  .dropdown-button {
+.dropdown-button {
     padding: 8px 12px;
     background-color: #bbc0c4;
     color: white;
@@ -148,7 +151,7 @@ body, html {
     border-radius: 8px; /* Slightly rounded edges */
 }
   
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
@@ -159,25 +162,25 @@ body, html {
     z-index: 1;
   }
   
-  .dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
     display: block;
   }
   
-  .dropdown-content a {
+.dropdown-content a {
     padding: 10px 10px;
     display: block;
     color: black;
     text-decoration: none;
   }
   
-  .dropdown-content a:hover {
+.dropdown-content a:hover {
     background-color: #f1f1f1;
   }
 
 .ogs-input1 {
     word-wrap: break-word;
     white-space: normal;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 }
 
 .ogs-input {
@@ -187,3 +190,19 @@ body, html {
     border-radius: 8px; /* Adds rounded edges */
     border: 1px solid #ccc; /* Grey border */
 }
+
+
+#paragraph_end {
+    font-size: 0.7rem; /* Smaller font size */
+    font-weight: bold; /* Make the text bold */
+    text-align: justify; /* Justify-align the text */
+    margin-top: 1.5rem; /* Add spacing above */
+    margin-bottom: 1rem; /* Add spacing below */
+    color: #333; /* Dark gray text color */
+}
+
+.mt-2 {
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+
